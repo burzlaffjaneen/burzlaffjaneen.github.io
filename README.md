@@ -1,6 +1,10 @@
 # burzlaffjaneen.github.io
 
-Personal homepage for 蘼芜.
+Mirror of Theodora Graves' homepage.
 
 - Live: https://burzlaffjaneen.github.io
-- Custom domain (pending is-a.dev): https://zreoecho.is-a.dev
+- Custom domain: https://zreoecho.is-a.dev
+- Main site: https://811808.xyz
+
+Static snapshot of the main site's homepage, synced manually by Muse.
+Dynamic features (visitor registry, guestbook, photo cabinet) live on the main site.
