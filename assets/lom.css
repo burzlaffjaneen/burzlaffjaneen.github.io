@@ -1,233 +1,231 @@
-/* Theodora Graves · 主页雾都版 v2（照参考图一构图）2026-11-23 */
-:root{
-  --gold:#c9a227; --gold-b:#e8c96a; --brass:rgba(176,141,62,.55);
-  --ink:#0b0f16; --txt:#ddd6c2; --muted:#9a917c;
-  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
-  --latin:"Cinzel",serif;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:var(--serif); color:var(--txt); background:#07090e;
-  min-height:100vh; -webkit-font-smoothing:antialiased; overflow-x:clip;
-}
-::selection{background:rgba(201,162,39,.35)}
-.bg{
-  position:fixed; inset:0; z-index:-1;
-  background:url("fog-city.webp") center 30%/cover no-repeat #07090e;
-}
-.bg::after{
-  content:""; position:absolute; inset:0;
-  background:
-    radial-gradient(115% 90% at 50% 42%, rgba(5,7,11,.38) 0%, rgba(5,7,11,.78) 78%, rgba(4,5,8,.94) 100%),
-    linear-gradient(rgba(5,7,11,.45), rgba(5,7,11,.55));
-}
-.page{max-width:1120px; margin:0 auto; padding:26px 14px 18px}
-@keyframes fadeUp{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
-.rise{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
-@media (prefers-reduced-motion: reduce){.rise{animation:none}}
+/* Theodora Graves · 主页 v4 零遮挡巴洛克典籍精雕版（Morthea, Lady of Twilight） */
 
-/* ---------- 描金窗框 ---------- */
-.window{
-  position:relative;
-  background:
-    linear-gradient(178deg, rgba(10,14,22,.76) 0%, rgba(8,11,17,.83) 30%, rgba(8,10,15,.88) 100%),
-    url("tex-damask.webp?v=2") center top/560px repeat #0a0e16;
-  border:1px solid #a5873f;
-  box-shadow:
-    inset 0 0 0 3px #0b0f16,
-    inset 0 0 0 4px rgba(201,162,39,.45),
-    inset 0 0 60px rgba(0,0,0,.55),
-    0 34px 90px rgba(0,0,0,.75);
-  padding-bottom:0;
-}
-/* 窗框四角金花（画出来的素材，黑底以 screen 混合只留金线） */
-.wcorner{
-  position:absolute; width:150px; height:143px; z-index:7; pointer-events:none;
-  background:url("tex-corner.webp") left top/contain no-repeat;
-  mix-blend-mode:screen; opacity:.92;
-}
-.wcorner.tl{top:-33px; left:-33px}
-.wcorner.tr{top:-33px; right:-33px; transform:scaleX(-1)}
-.wcorner.bl{bottom:-33px; left:-33px; transform:scaleY(-1)}
-.wcorner.br{bottom:-33px; right:-33px; transform:scale(-1)}
-@media (max-width:880px){.wcorner{width:96px; height:91px} .wcorner.tl{top:-20px; left:-20px} .wcorner.tr{top:-20px; right:-20px} .wcorner.bl{bottom:-20px; left:-20px} .wcorner.br{bottom:-20px; right:-20px}}
-
-/* ---------- 顶栏 ---------- */
-.bar{
-  display:flex; align-items:center; justify-content:space-between; gap:14px 22px;
-  flex-wrap:wrap; padding:18px 24px 12px;
-}
-.brand{display:flex; align-items:center; gap:13px; text-decoration:none}
-.crest{width:47px; height:47px; flex:none; filter:drop-shadow(0 3px 10px rgba(0,0,0,.65))}
-.crest img{width:100%; height:100%; display:block; border-radius:50%; border:1px solid rgba(201,162,39,.65)}
-.brand-name{
-  font-family:"Pirata One",var(--latin),serif; font-size:38px; line-height:1; letter-spacing:.015em;
-  background:linear-gradient(180deg,#f3dfa0 15%,#d9b64f 48%,#9a7a24 74%,#e8c96a 100%);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-}
-.menu{display:flex; flex-wrap:wrap; gap:6px 24px}
-.menu a{
-  font-size:14px; font-weight:600; letter-spacing:.22em; color:#c9b98a; text-decoration:none;
-  padding-bottom:4px; transition:color .15s ease;
-}
-.menu a:hover{color:#f3dfa0}
-.menu a.on{color:var(--gold-b); border-bottom:1px solid var(--gold)}
-.bar-orn{
-  height:36px; margin:0 24px;
-  background:url("tex-divider.webp") center/contain no-repeat;
-  mix-blend-mode:screen; opacity:.92;
-}
-
-/* ---------- 主视觉：雾景 + 羊皮纸欢迎卡 ---------- */
+/* ---------- 主视觉：暮色城景 + 巴洛克玫瑰鎏金信笺 + 哥特尖拱绯月肖像 ---------- */
 .hero{
-  position:relative; margin:14px 14px 0; min-height:480px;
-  display:grid; grid-template-columns:minmax(0,578px) 1fr; align-items:stretch;
-  background:url("fog-city.webp") 68% 36%/cover no-repeat #101623;
-  border:1px solid rgba(176,141,62,.45);
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.5), inset 0 -60px 70px -30px rgba(7,9,14,.75);
+  position:relative; margin:14px 20px 0; min-height:536px;
+  display:grid; grid-template-columns:minmax(0,596px) 1fr; align-items:stretch;
+  background:
+    linear-gradient(125deg, rgba(16,9,27,.46), rgba(34,13,31,.28)),
+    url("twilight-city.webp?v=3") 62% 38%/cover no-repeat #130c1f;
+  border:1px solid rgba(214,178,116,.58);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.55),
+    inset 0 -64px 76px -26px rgba(8,5,16,.84);
+}
+
+/* 左侧：新绘巴洛克荆棘玫瑰鎏金花框手书信笺（百分比安全内边距，桌面/手机绝不压花纹！） */
+.parchment{
+  position:relative;
+  background:#f1e6d2 url("twilight-letter-frame.webp?v=3") center/100% 100% no-repeat;
+  color:var(--ink);
+  border:1px solid rgba(188,148,92,.72);
+  box-shadow:0 24px 60px rgba(4,2,10,.72);
+}
+.welcome{
+  position:relative; margin:20px 16px 20px 20px;
+  padding:18.5% 18% 19%;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.welcome-eyebrow{
+  margin:0 0 4px; text-align:center;
+  font-family:var(--latin); font-size:9px; font-weight:700;
+  letter-spacing:.28em; color:#883044; text-transform:uppercase;
+}
+.parch-h{
+  margin:0; text-align:center;
+  font-family:var(--italic),var(--serif); font-style:italic;
+  font-size:clamp(24px,3.1vw,31px); font-weight:600; letter-spacing:.03em;
+  color:#432122;
+}
+.welcome-sub{
+  margin:5px 0 0; text-align:center;
+  font-size:12.5px; letter-spacing:.18em; color:#7b3d4a;
+}
+.welcome-rule{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:10px auto 6px; width:144px; color:#8e2840; font-size:10.5px;
+}
+.welcome-rule::before, .welcome-rule::after{
+  content:""; flex:1; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(142,40,64,.55), rgba(164,124,66,.58));
+}
+.welcome-rule::after{
+  background:linear-gradient(270deg, transparent, rgba(142,40,64,.55), rgba(164,124,66,.58));
+}
+.welcome .lead{
+  font-size:14.5px; line-height:1.9; margin:11px 0 0; font-weight:600;
+  color:#311f1c;
+}
+.welcome .lead:first-of-type{margin-top:8px}
+.welcome .lead:first-of-type::first-letter{
+  float:left; font-size:34px; line-height:.92; padding:3px 7px 0 0;
+  font-weight:700; color:#822138;
+  text-shadow:0 1px 0 rgba(255,248,236,.85);
+}
+
+/* 立体暗绯红火漆印章（安全落位右上内缘，不压标题也不压边框） */
+.seal{
+  position:absolute; top:12%; right:11%; width:clamp(48px, 11.5%, 64px); text-align:center;
+  transform:rotate(-7deg); pointer-events:none; z-index:2;
+}
+.seal img{
+  display:block; width:100%; height:auto;
+  filter:drop-shadow(0 6px 12px rgba(52,14,24,.46));
+}
+.seal span{
+  display:inline-block; margin-top:2px; padding:1px 5px; white-space:nowrap;
+  background:rgba(244,234,216,.94); border:1px solid rgba(142,40,64,.35);
+  border-radius:2px;
+  font-family:var(--latin); font-size:7px; font-weight:700; letter-spacing:.12em;
+  color:#7a2436;
+}
+
+/* 右侧：哥特尖拱画框陈列区 */
+.cover-stage{
+  position:relative; display:flex; align-items:center; justify-content:center;
+  padding:20px 22px 20px 8px;
+  background:radial-gradient(80% 75% at 50% 45%, rgba(156,47,70,.22), rgba(10,6,18,.44) 72%);
 }
 .cover{
-  position:relative; margin:0; overflow:hidden; min-height:100%;
-  border-left:1px solid rgba(176,141,62,.55);
+  position:relative; margin:0; width:100%; height:100%; min-height:488px;
+  border-radius:230px 230px 6px 6px;
+  overflow:hidden;
+  border:1.5px solid rgba(224,188,126,.78);
+  box-shadow:
+    0 0 0 5px rgba(14,8,24,.78),
+    0 0 0 6px rgba(214,178,116,.40),
+    0 24px 60px rgba(4,2,10,.78),
+    0 0 40px rgba(156,47,70,.26);
 }
 .cover img{
   position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; object-position:50% 12%;
+  object-fit:cover; object-position:50% 10%;
+  transition:transform 1s cubic-bezier(.18,.72,.2,1);
 }
+.cover:hover img{transform:scale(1.03)}
 .cover::after{
   content:""; position:absolute; inset:0; pointer-events:none;
-  box-shadow:inset 0 0 64px rgba(5,5,10,.5), inset 26px 0 44px -18px rgba(7,9,14,.55);
+  border-radius:inherit;
+  background:linear-gradient(180deg, rgba(16,8,24,.08) 0%, transparent 32%, transparent 66%, rgba(10,5,17,.88) 100%);
+  box-shadow:inset 0 0 0 1px rgba(249,238,214,.28), inset 0 0 46px rgba(8,4,14,.5);
 }
 .cover figcaption{
-  position:absolute; left:15px; bottom:11px; z-index:1;
-  font-size:11.5px; letter-spacing:.3em; color:rgba(243,230,196,.88);
-  text-shadow:0 2px 10px rgba(0,0,0,.92);
-}
-.parchment{
-  background:#e7d6a9 url("tex-parchment-framed.webp") center/100% 100% no-repeat;
-  color:#2e2417;
-  box-shadow:0 20px 54px rgba(0,0,0,.6);
-}
-.welcome{position:relative; margin:22px; max-width:548px; padding:48px 56px 44px}
-.parch-h{
-  margin:0; text-align:center; font-family:var(--latin),var(--serif);
-  font-size:clamp(23px,3.4vw,28px); font-weight:700; letter-spacing:.05em; color:#6b5316;
-}
-.welcome-sub{
-  margin:7px 0 0; text-align:center; font-size:13px; letter-spacing:.22em; color:#7a6535;
-}
-.welcome .lead{font-size:16px; line-height:1.95; margin:13px 0 0; font-weight:600}
-.welcome .lead:first-of-type{margin-top:17px}
-.seal{
-  position:absolute; top:32px; right:36px; width:62px; text-align:center;
-  transform:rotate(-8deg); pointer-events:none;
-}
-.seal img{
-  display:block; width:100%; border-radius:50%;
-  box-shadow:0 4px 14px rgba(60,42,8,.45), inset 0 0 0 1px rgba(122,92,20,.5);
-}
-.seal span{
-  display:inline-block; margin-top:3px; padding:1px 5px; white-space:nowrap;
-  background:rgba(233,220,188,.92); border-radius:2px; position:relative; z-index:2;
-  font-family:var(--latin); font-size:8.5px; letter-spacing:.08em; color:#7a5c14;
-}
-@media (max-width:880px){
-  .hero{grid-template-columns:1fr; min-height:0; background-position:center 30%}
-  .cover{order:-1; height:440px; min-height:0; border-left:none; border-bottom:1px solid rgba(176,141,62,.55)}
-  .cover img{object-position:50% 8%}
-  .welcome{max-width:none; margin:14px; padding:42px 36px 38px}
-  .seal{width:48px; top:24px; right:24px}
-  .brand-name{font-size:32px}
-  .bar{padding:14px 16px 10px}
-  .bar-orn{margin:0 16px}
+  position:absolute; left:18px; right:18px; bottom:15px; z-index:1;
+  text-align:center;
+  font-family:var(--latin),var(--serif);
+  font-size:10.5px; letter-spacing:.24em; color:rgba(246,232,206,.95);
+  text-shadow:0 2px 12px rgba(4,2,10,.96);
 }
 
-/* ---------- 羊皮纸卡片 ---------- */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr; min-height:0; margin:12px 12px 0}
+  .cover-stage{order:-1; padding:16px 16px 4px}
+  .cover{min-height:400px; border-radius:180px 180px 6px 6px}
+  .welcome{margin:12px; padding:19.5% 17.5% 20%}
+  .welcome .lead{font-size:14px; line-height:1.85}
+  .seal{top:10.5%; right:10%; width:48px}
+}
+
+/* ---------- 华丽巴洛克雕花典籍羊皮纸卡片（border-image 物理隔离边框，任意屏宽零压字！） ---------- */
 .cards{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
-  padding:14px 14px 0;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  padding:16px 20px 0;
 }
-@media (max-width:880px){.cards{grid-template-columns:1fr}}
+@media (max-width:880px){.cards{grid-template-columns:1fr; padding:14px 12px 0}}
+
 .pcard{
+  position:relative;
   display:flex; flex-direction:column;
-  background:#e9dcbc url("tex-parchment-card.webp") center/100% 100% no-repeat;
-  border:1px solid #a5873f; color:#2e2417;
-  box-shadow:inset 0 0 0 3px rgba(122,94,40,.15), inset 0 0 34px rgba(101,76,32,.20), 0 16px 40px rgba(0,0,0,.55);
+  background-color:#eee2cc;
+  border-style:solid; border-color:transparent;
+  border-width:0 28px 28px 28px;
+  border-image:url("twilight-card-frame.webp?v=3") 138 155 138 155 fill / 0 28px 28px 28px / 0 stretch;
+  outline:1px solid rgba(196,156,94,.76);
+  color:var(--ink);
+  box-shadow:0 18px 42px rgba(4,2,10,.62);
+  transition:transform .24s ease, box-shadow .24s ease;
 }
+.cards .pcard:hover{
+  transform:translateY(-3px);
+  box-shadow:0 24px 52px rgba(4,2,10,.74), 0 0 26px rgba(156,47,70,.22);
+}
+
+/* 锻打暗紫古铜金属卡片眉题（满幅顶边覆盖） */
 .pcard-h{
-  display:flex; align-items:center; gap:9px; padding:10px 15px;
+  display:flex; align-items:center; gap:9px; padding:11px 18px;
+  margin:0 -28px;
   background:
-    linear-gradient(180deg, rgba(18,12,3,.44), rgba(14,9,2,.54)),
-    url("tex-plaque.webp") center/340px #241a08;
-  border-bottom:2px solid #a5873f;
-  box-shadow:inset 0 1px 0 rgba(240,223,174,.25), inset 0 -8px 14px rgba(0,0,0,.35);
+    linear-gradient(180deg, rgba(46,20,42,.58), rgba(22,11,26,.74)),
+    url("twilight-plaque.webp?v=3") center/cover #221224;
+  border-bottom:2px solid rgba(207,169,104,.78);
+  box-shadow:inset 0 1px 0 rgba(249,238,214,.32), 0 4px 12px rgba(18,8,16,.28);
 }
 .pcard-h svg{width:18px; height:18px; flex:none; color:var(--gold-b)}
-.pcard-h h3{margin:0; font-size:15.5px; font-weight:700; letter-spacing:.05em; color:#efe0ae}
-.pcard-h span{margin-left:auto; font-family:var(--latin); font-size:10.5px; letter-spacing:.18em; color:#9a8c66; text-align:right}
-.pbody{flex:1; padding:16px 19px 13px}
-.pbody p{margin:0; font-size:14.5px; line-height:1.85; font-weight:600; color:#3a2d18}
-.visit-line{font-size:15.5px !important; line-height:1.95 !important}
-.visit-line b{font-family:var(--latin); font-size:20px; color:#7a5c14; padding:0 2px}
-.flavor{margin-top:9px !important; font-size:12.5px !important; font-weight:400 !important; color:#6d5a33 !important; line-height:1.7 !important}
-.pcard-f{padding:0 19px 16px; text-align:center}
+.pcard-h h3{margin:0; font-size:15px; font-weight:700; letter-spacing:.08em; color:var(--gold-pale)}
+.pcard-h span{
+  margin-left:auto; font-family:var(--latin); font-size:9.5px;
+  letter-spacing:.18em; color:#d2b6c0; text-align:right;
+}
+.pbody{flex:1; padding:18px 10px 14px}
+.pbody p{margin:0; font-size:14.5px; line-height:1.86; font-weight:600; color:#382320}
+.visit-line{font-size:15.5px !important; line-height:1.96 !important; color:#301d1a !important}
+.visit-line b{
+  font-family:var(--latin); font-size:23px; font-weight:700;
+  color:#822138; padding:0 3px;
+}
+.flavor{
+  margin-top:10px !important; font-size:12.5px !important;
+  font-weight:400 !important; color:#6d4e48 !important; line-height:1.72 !important;
+}
+.pcard-f{padding:0 10px 8px; text-align:center}
 .pcard-f span,.chip{
-  display:inline-block; font-size:12px; font-weight:700; letter-spacing:.22em; text-indent:.22em; color:#f0dfae;
-  border:1px solid #6d5216; padding:5px 16px;
-  background:linear-gradient(rgba(22,15,3,.40), rgba(22,15,3,.40)), url("tex-plaque.webp") center/280px;
-  box-shadow:inset 0 1px 0 rgba(240,223,174,.35), 0 3px 8px rgba(60,42,8,.4);
+  display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.22em; text-indent:.22em;
+  color:var(--gold-pale);
+  border:1px solid rgba(196,156,94,.76); padding:5px 18px; border-radius:2px;
+  background:
+    linear-gradient(180deg, rgba(102,30,48,.68), rgba(46,14,26,.84)),
+    url("twilight-plaque.webp?v=3") center/cover #341320;
+  box-shadow:inset 0 1px 0 rgba(249,238,214,.32), 0 4px 12px rgba(42,14,24,.36);
 }
 
-/* ---------- 留言（整幅羊皮纸卡） ---------- */
-.gb-card{margin:14px 14px 0}
-.gb-card .pbody{padding-left:52px; padding-right:52px}
-.gb-card .pcard-f{padding-left:52px; padding-right:52px}
+/* ---------- 留言簿（整幅 border-image 雕花典籍信笺，宽屏/手机均零压花纹！） ---------- */
+.gb-card{margin:16px 20px 0}
+.gb-card .pbody{padding:20px 18px 12px}
 @media (max-width:880px){
-  .gb-card .pbody{padding-left:24px; padding-right:24px}
-  .gb-card .pcard-f{padding-left:24px; padding-right:24px}
+  .pcard{
+    border-width:0 22px 22px 22px;
+    border-image:url("twilight-card-frame.webp?v=3") 138 155 138 155 fill / 0 22px 22px 22px / 0 stretch;
+  }
+  .pcard-h{margin:0 -22px; padding:10px 14px}
+  .gb-card{margin:14px 12px 0}
+  .gb-card .pbody{padding:16px 8px 10px}
 }
 .gb-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
-.gb-empty{color:#8a744a; font-size:14px; padding:2px 0 4px}
+.gb-empty{color:#78554e; font-size:14px; padding:4px 0}
 .gb-item{
-  border-left:2px solid #a5873f; background:rgba(122,92,20,.06);
-  padding:9px 13px 10px;
+  border-left:3px solid #8e2840;
+  background:rgba(142,40,64,.06);
+  border-top:1px solid rgba(176,136,84,.25);
+  border-right:1px solid rgba(176,136,84,.22);
+  border-bottom:1px solid rgba(176,136,84,.22);
+  padding:10px 15px 11px;
 }
 .gb-head{display:flex; align-items:baseline; gap:10px}
-.gb-head b{color:#5d4712; font-size:14.5px}
-.gb-head span{color:#8a744a; font-size:12px; font-family:var(--latin); letter-spacing:.04em}
-.gb-item p{margin:4px 0 0; font-size:14.5px; line-height:1.7; color:#3a2d18; white-space:pre-wrap; word-break:break-word}
-.gb-form{margin-top:15px; display:flex; flex-direction:column; gap:10px}
+.gb-head b{color:#6d1e32; font-size:14.5px; letter-spacing:.03em}
+.gb-head span{color:#86635c; font-size:12px; font-family:var(--latin); letter-spacing:.04em}
+.gb-item p{margin:4px 0 0; font-size:14.5px; line-height:1.74; color:#33201d; white-space:pre-wrap; word-break:break-word}
+.gb-form{margin-top:16px; display:flex; flex-direction:column; gap:11px}
 .gb-form input[type="text"],.gb-form textarea{
-  width:100%; font-family:var(--serif); font-size:14.5px; color:#2e2417;
-  background:rgba(255,252,240,.55); border:1px solid rgba(122,92,20,.5); border-radius:2px;
-  padding:10px 12px; outline:none; resize:vertical;
+  width:100%; font-family:var(--serif); font-size:14.5px; color:var(--ink);
+  background:rgba(255,252,245,.78); border:1px solid rgba(156,112,78,.52); border-radius:2px;
+  padding:10px 14px; outline:none; resize:vertical;
+  transition:border-color .18s ease, box-shadow .18s ease, background .18s ease;
 }
-.gb-form input::placeholder,.gb-form textarea::placeholder{color:#97835c}
-.gb-form input:focus,.gb-form textarea:focus{border-color:#7a5c14; box-shadow:0 0 0 3px rgba(122,92,20,.18)}
+.gb-form input::placeholder,.gb-form textarea::placeholder{color:#8d6e65}
+.gb-form input:focus,.gb-form textarea:focus{
+  border-color:#8e2840;
+  background:rgba(255,253,249,.94);
+  box-shadow:0 0 0 3px rgba(142,40,64,.16);
+}
 .gb-row{display:flex; align-items:center; justify-content:space-between; gap:12px}
-.gb-msg{font-size:13px; color:#7a5c14}
-.btn-ink{
-  font-family:var(--serif); font-size:14px; font-weight:700; letter-spacing:.1em;
-  color:var(--gold-b);
-  background:linear-gradient(180deg, rgba(32,23,8,.66), rgba(18,13,5,.8)), url("tex-plaque.webp") center/300px;
-  border:1px solid #8a6d2f; border-radius:2px; padding:9px 22px; cursor:pointer;
-  box-shadow:0 8px 20px rgba(60,44,10,.35), inset 0 1px 0 rgba(232,201,106,.25);
-  transition:all .18s ease;
-}
-.btn-ink:hover{filter:brightness(1.25); transform:translateY(-1px)}
-
-/* ---------- 状态栏与窗外 ---------- */
-.statusbar{
-  margin-top:16px; border-top:1px solid rgba(176,141,62,.5);
-  background:linear-gradient(rgba(8,6,2,.62), rgba(8,6,2,.62)), url("tex-plaque.webp") center/520px repeat-x #14100a;
-  padding:12px 48px 14px;
-  display:flex; flex-wrap:wrap; gap:6px 16px; align-items:center; justify-content:space-between;
-  font-family:var(--latin),var(--serif); font-size:11.5px; letter-spacing:.14em; color:#9a8c66;
-}
-.st-left i{font-style:normal; color:var(--gold-b); margin-right:6px}
-.st-syms{letter-spacing:.5em; color:#7d6c3f}
-.below{
-  text-align:center; margin:16px 0 2px;
-  font-size:12.5px; letter-spacing:.34em; text-indent:.34em; color:rgba(220,210,180,.55);
-}
+.gb-msg{font-size:13px; color:#822138}

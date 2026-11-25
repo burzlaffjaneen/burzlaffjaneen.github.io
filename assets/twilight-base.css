@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Theodora Graves · Morthea, Lady of Twilight（暮色女士·莫尔西娅）
+   v3 华丽哥特巴洛克公共基座：透明雕花角饰 × 满幅星月分隔 × 暮玫瑰织锦
+   ========================================================================== */
+:root{
+  --void:#080510;
+  --plum:#140d21;
+  --dusk:#201330;
+  --gold:#cfa968;
+  --gold-b:#f1dcb0;
+  --gold-pale:#f9eed6;
+  --gold-deep:#8e6b34;
+  --rose-gold:#d9a6a0;
+  --crimson:#8e2840;
+  --crimson-b:#c8526c;
+  --ink:#2c1d1a;
+  --ink-soft:#61443f;
+  --txt:#efe5d6;
+  --muted:#b4a3b8;
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --latin:"Cinzel","Cormorant Garamond",serif;
+  --italic:"Cormorant Garamond","Noto Serif SC",serif;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--serif);
+  color:var(--txt);
+  background:var(--void);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:clip;
+}
+::selection{background:rgba(142,40,64,.42); color:#fff7ea}
+[hidden]{display:none !important}
+.hidden{display:none !important}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--gold-b);
+  outline-offset:2px;
+}
+
+/* ---------- 暮色天穹底景 + 微光星尘 ---------- */
+.bg{
+  position:fixed; inset:0; z-index:-2;
+  background:url("twilight-city.webp?v=3") center 36%/cover no-repeat var(--void);
+}
+.bg::after{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(96% 74% at 50% 30%, rgba(168,54,78,.14) 0%, rgba(18,11,30,.52) 55%, rgba(8,5,16,.90) 100%),
+    linear-gradient(180deg, rgba(10,6,19,.48) 0%, rgba(16,9,24,.32) 44%, rgba(7,4,14,.82) 100%);
+}
+.twilight-motes{position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden}
+.twilight-mote{
+  position:absolute; border-radius:50%;
+  background:radial-gradient(circle, rgba(249,238,214,.95) 0%, rgba(207,169,104,.45) 45%, transparent 72%);
+  animation:moteFloat var(--dur,18s) ease-in-out infinite;
+  animation-delay:var(--del,0s);
+  opacity:0;
+}
+.twilight-mote.rose{
+  background:radial-gradient(circle, rgba(236,158,176,.9) 0%, rgba(156,47,70,.42) 48%, transparent 72%);
+}
+@keyframes moteFloat{
+  0%{transform:translate3d(0,18px,0) scale(.7); opacity:0}
+  20%{opacity:var(--op,.42)}
+  50%{transform:translate3d(var(--dx,14px),-24px,0) scale(1.08); opacity:var(--op,.56)}
+  80%{opacity:var(--op,.34)}
+  100%{transform:translate3d(calc(var(--dx,14px)*-.5),-54px,0) scale(.75); opacity:0}
+}
+@media (prefers-reduced-motion: reduce){
+  .twilight-motes{display:none}
+  .rise{animation:none !important}
+}
+
+.page{max-width:1136px; margin:0 auto; padding:28px 18px 22px}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(12px)}
+  to{opacity:1; transform:none}
+}
+.rise{animation:fadeUp .8s cubic-bezier(.18,.72,.2,1) both; animation-delay:calc(var(--d,0)*1ms)}
+
+/* ---------- 暮玫瑰织锦主窗框（暗纹清晰可见、层次丰盈） ---------- */
+.window{
+  position:relative;
+  background:
+    radial-gradient(110% 34% at 50% 0%, rgba(164,52,76,.18) 0%, transparent 66%),
+    linear-gradient(178deg, rgba(16,10,28,.56) 0%, rgba(13,8,22,.64) 44%, rgba(10,6,18,.74) 100%),
+    url("twilight-damask.webp?v=3") center top/380px repeat var(--plum);
+  border:1.5px solid rgba(214,178,116,.72);
+  box-shadow:
+    inset 0 0 0 4px rgba(10,6,18,.88),
+    inset 0 0 0 5px rgba(214,178,116,.42),
+    inset 0 1px 0 rgba(249,238,214,.36),
+    inset 0 0 74px rgba(6,3,13,.56),
+    0 38px 98px rgba(3,1,10,.86),
+    0 0 56px rgba(142,40,64,.14);
+}
+
+/* 真透明 RGBA 哥特玫瑰星月鎏金四角雕花（绝无黑底方块！） */
+.wcorner{
+  position:absolute; width:132px; height:132px; z-index:8; pointer-events:none;
+  background:url("twilight-corner.webp?v=3") left top/contain no-repeat;
+  filter:drop-shadow(0 3px 10px rgba(4,2,10,.72));
+}
+.wcorner.tl{top:-10px; left:-10px}
+.wcorner.tr{top:-10px; right:-10px; transform:scaleX(-1)}
+.wcorner.bl{bottom:-10px; left:-10px; transform:scaleY(-1)}
+.wcorner.br{bottom:-10px; right:-10px; transform:scale(-1)}
+
+/* ---------- 统一顶栏 ---------- */
+.bar{
+  position:relative; z-index:2;
+  display:flex; align-items:center; justify-content:space-between; gap:14px 22px;
+  flex-wrap:wrap; padding:22px 48px 10px;
+}
+.brand{display:flex; align-items:center; gap:15px; text-decoration:none}
+.crest{
+  position:relative; width:54px; height:54px; flex:none; border-radius:50%;
+  padding:2px;
+  background:linear-gradient(145deg, rgba(249,238,214,.85), rgba(156,47,70,.5), rgba(207,169,104,.7));
+  box-shadow:0 5px 16px rgba(0,0,0,.74), 0 0 18px rgba(156,47,70,.24);
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+.brand:hover .crest{
+  transform:scale(1.04) rotate(2deg);
+  box-shadow:0 6px 20px rgba(0,0,0,.76), 0 0 24px rgba(207,169,104,.44);
+}
+.crest img{width:100%; height:100%; display:block; border-radius:50%; object-fit:cover}
+.brand-text{display:flex; flex-direction:column; gap:3px}
+.brand-name{
+  font-family:"Pirata One",var(--latin),serif; font-size:38px; line-height:1; letter-spacing:.02em;
+  background:linear-gradient(180deg,#fdf2d8 10%,#e8c98d 46%,#b1894b 75%,#f3dfb4 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));
+}
+.brand-epithet{
+  font-family:var(--latin); font-size:9.5px; font-weight:600;
+  letter-spacing:.3em; color:rgba(226,202,174,.84);
+  text-transform:uppercase;
+}
+.menu{display:flex; flex-wrap:wrap; align-items:center; gap:8px 26px}
+.menu a{
+  position:relative;
+  font-size:14px; font-weight:600; letter-spacing:.22em; color:#d8c8b6;
+  text-decoration:none; padding-bottom:6px;
+  transition:color .2s ease;
+}
+.menu a::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:1.5px;
+  background:linear-gradient(90deg, transparent, var(--crimson-b), var(--gold-b), var(--crimson-b), transparent);
+  transform:scaleX(0); opacity:0; transition:transform .25s ease, opacity .25s ease;
+}
+.menu a:hover{color:var(--gold-pale)}
+.menu a:hover::after{transform:scaleX(1); opacity:.9}
+.menu a.on{color:var(--gold-b)}
+.menu a.on::after{transform:scaleX(1); opacity:1}
+
+/* 满幅真透明星月玫瑰横幅分隔雕花（两侧延伸鎏金细线，气势饱满） */
+.bar-orn{
+  position:relative; height:52px; margin:0 36px;
+  display:flex; align-items:center; justify-content:center;
+}
+.bar-orn::before, .bar-orn::after{
+  content:""; flex:1; height:1px;
+  background:linear-gradient(90deg, transparent 0%, rgba(207,169,104,.55) 55%, rgba(241,220,176,.85) 100%);
+}
+.bar-orn::after{
+  background:linear-gradient(270deg, transparent 0%, rgba(207,169,104,.55) 55%, rgba(241,220,176,.85) 100%);
+}
+.bar-orn-mid{
+  width:248px; height:52px; flex:none; margin:0 -18px;
+  background:url("twilight-divider.webp?v=3") center/contain no-repeat;
+  filter:drop-shadow(0 2px 10px rgba(4,2,10,.7));
+}
+/* 兼容不带内部元素的旧用法 */
+.bar-orn:empty{
+  background:url("twilight-divider.webp?v=3") center/contain no-repeat;
+  filter:drop-shadow(0 2px 10px rgba(4,2,10,.7));
+}
+.bar-orn:empty::before, .bar-orn:empty::after{
+  position:absolute; top:50%; width:32%; height:1px;
+}
+.bar-orn:empty::before{left:0}
+.bar-orn:empty::after{right:0}
+
+/* ---------- 锻打暗紫古铜按钮（金属肌理清晰可见） ---------- */
+.btn, .btn-ink{
+  position:relative; overflow:hidden;
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  cursor:pointer; text-decoration:none;
+  font-family:var(--serif); font-size:13.5px; font-weight:700; letter-spacing:.14em;
+  color:var(--gold-pale);
+  border:1px solid rgba(214,178,116,.76); border-radius:2px; padding:8px 22px;
+  background:
+    linear-gradient(180deg, rgba(74,26,44,.58), rgba(32,12,24,.76)),
+    url("twilight-plaque.webp?v=3") center/cover #2a1220;
+  box-shadow:
+    inset 0 1px 0 rgba(249,238,214,.38),
+    inset 0 -1px 0 rgba(0,0,0,.55),
+    0 8px 20px rgba(24,8,16,.44);
+  transition:filter .2s ease, transform .18s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.btn::after, .btn-ink::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg, transparent 25%, rgba(249,238,214,.22) 50%, transparent 75%);
+  transform:translateX(-110%); transition:transform .55s ease;
+}
+.btn:hover::after, .btn-ink:hover::after{transform:translateX(110%)}
+.btn svg, .btn-ink svg{width:16px; height:16px; flex:none}
+.btn:hover, .btn-ink:hover{
+  filter:brightness(1.16);
+  border-color:var(--gold-pale);
+  box-shadow:
+    inset 0 1px 0 rgba(249,238,214,.46),
+    0 10px 24px rgba(142,40,64,.36);
+  transform:translateY(-1px);
+}
+.btn:disabled, .btn-ink:disabled{opacity:.52; cursor:not-allowed; transform:none}
+.btn.accent{
+  background:
+    linear-gradient(180deg, rgba(142,38,62,.74), rgba(82,20,38,.88)),
+    url("twilight-plaque.webp?v=3") center/cover #521628;
+  border-color:rgba(238,204,144,.84);
+  color:#fff6e2;
+  letter-spacing:.2em;
+}
+.btn.danger{color:#ffb3a8; border-color:rgba(208,90,114,.65)}
+
+/* ---------- 统一天文月相状态栏（左右留白充裕，绝不与底角雕花重叠！） ---------- */
+.statusbar{
+  margin-top:20px;
+  border-top:1px solid rgba(214,178,116,.56);
+  background:
+    linear-gradient(180deg, rgba(30,15,34,.62), rgba(14,7,20,.78)),
+    url("twilight-plaque.webp?v=3") center/560px repeat-x #160c1f;
+  padding:14px 104px 16px;
+  display:flex; flex-wrap:wrap; gap:8px 18px; align-items:center; justify-content:space-between;
+  font-family:var(--latin),var(--serif); font-size:11.5px; letter-spacing:.14em; color:#cbbac6;
+  box-shadow:inset 0 1px 0 rgba(249,238,214,.18);
+}
+.st-left{display:inline-flex; align-items:center; gap:8px}
+.st-moon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; color:var(--gold-b);
+  filter:drop-shadow(0 0 6px rgba(204,85,110,.55));
+}
+.st-moon svg{width:16px; height:16px; display:block}
+.st-syms{letter-spacing:.48em; color:rgba(214,178,116,.72)}
+.st-right{color:#d0beab}
+.below{
+  text-align:center; margin:18px 0 4px;
+  font-size:12.5px; letter-spacing:.38em; text-indent:.38em;
+  color:rgba(236,222,210,.68);
+  text-shadow:0 2px 12px rgba(4,2,10,.82);
+}
+
+@media (max-width:880px){
+  .page{padding:18px 10px 14px}
+  .wcorner{width:86px; height:86px}
+  .wcorner.tl{top:-7px; left:-7px}
+  .wcorner.tr{top:-7px; right:-7px}
+  .wcorner.bl{bottom:-7px; left:-7px}
+  .wcorner.br{bottom:-7px; right:-7px}
+  .brand-name{font-size:30px}
+  .brand-epithet{font-size:8.5px; letter-spacing:.2em}
+  .crest{width:44px; height:44px}
+  .bar{padding:18px 26px 8px}
+  .bar-orn{margin:0 18px; height:38px}
+  .statusbar{padding:14px 28px 18px; justify-content:center; text-align:center}
+}
